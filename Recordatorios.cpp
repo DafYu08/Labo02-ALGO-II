@@ -106,10 +106,33 @@ bool Horario::operator<(Horario h) {
     return res;
 }
 
-// Ejercicio 13
+using rec = string;
+class Recordatorio{
+    public:
+        Recordatorio(Fecha f, Horario h, Recordatorio r);
+        rec r();
+        Fecha f();
+        Horario h();
+    private:
+        rec rec_;
+        Horario h_;
+        Fecha f_;
+};
 
-// Clase Recordatorio
+Recordatorio::Recordatorio(Fecha f, Horario h, Recordatorio r): rec_(), h_(h),f_(f){}
 
+Fecha Recordatorio:: f(){
+    return f_;
+}
+Horario Recordatorio:: h(){
+    return h_;
+}
+rec Recordatorio::r() {
+    return rec_;
+}
+ostream& operator<<(ostream& os, Recordatorio r) {
+    os << r.r() << " @ "<< r.f() << r.h();
+    return os;}
 
 // Ejercicio 14
 
