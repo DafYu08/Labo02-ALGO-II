@@ -109,17 +109,17 @@ bool Horario::operator<(Horario h) {
 using rec = string;
 class Recordatorio{
     public:
-        Recordatorio(Fecha f, Horario h, Recordatorio r);
-        rec r();
+        Recordatorio(Fecha f, Horario h, string r);
+        string mensajito();
         Fecha f();
         Horario h();
     private:
-        rec rec_;
+        string rec_;
         Horario h_;
         Fecha f_;
 };
 
-Recordatorio::Recordatorio(Fecha f, Horario h, Recordatorio r): rec_(), h_(h),f_(f){}
+Recordatorio::Recordatorio(Fecha f, Horario h, string mensajito): rec_(mensajito), h_(h),f_(f){}
 
 Fecha Recordatorio:: f(){
     return f_;
@@ -127,12 +127,13 @@ Fecha Recordatorio:: f(){
 Horario Recordatorio:: h(){
     return h_;
 }
-rec Recordatorio::r() {
+rec Recordatorio::mensajito() {
     return rec_;
 }
 ostream& operator<<(ostream& os, Recordatorio r) {
-    os << r.r() << " @ "<< r.f() << r.h();
+    os << r.mensajito() << " @ "<< r.f() << " " << r.h();
     return os;}
+
 
 // Ejercicio 14
 
